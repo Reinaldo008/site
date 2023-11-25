@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada do Coração</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #story {
+            margin: 20px;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #imagemPedidoAceito,
+        #imagemPedidoRecusado {
+            display: none;  /* Inicia com as imagens ocultas */
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo à Jornada do Coração!</h1>
+    <div id="story">
+        <p>Você é um(a) aventureiro(a) em busca do lendário 'Cristal do Destino'. Durante sua jornada, tomará decisões que moldarão o destino da sua busca.</p>
+    </div>
+
+    <div id="choices">
+        <button onclick="escolherCaminho(1)">Caminho Iluminado</button>
+        <button onclick="escolherCaminho(2)">Caminho Escuro</button>
+    </div>
+
+    <div id="imagemPedidoAceito">
+        <img src="./de.jpg" alt="Pedido Aceito">
+    </div>
+
+    <div id="imagemPedidoRecusado">
+        <img src="./meme-chorando-no-boteco-1-400x200xc.jpeg" alt="Pedido Recusado">
+    </div>
+
+    <script>
+        function escolherCaminho(escolha) {
+            var storyDiv = document.getElementById("story");
+            var choicesDiv = document.getElementById("choices");
+            var imagemPedidoAceitoDiv = document.getElementById("imagemPedidoAceito");
+            var imagemPedidoRecusadoDiv = document.getElementById("imagemPedidoRecusado");
+
+            if (escolha === 1) {
+                storyDiv.innerHTML += "<p>Você escolheu o Caminho Iluminado.</p>";
+                // Lógica para o resultado do Caminho Iluminado
+            } else if (escolha === 2) {
+                storyDiv.innerHTML += "<p>Você escolheu o Caminho Escuro.</p>";
+                // Lógica para o resultado do Caminho Escuro
+            } else {
+                storyDiv.innerHTML += "<p>Opção inválida. Por favor, escolha 1 ou 2.</p>";
+                return;
+            }
+
+            // Adicione mais lógica e escolhas conforme necessário
+
+            // Exemplo de como adicionar novas escolhas
+            choicesDiv.innerHTML = "<button onclick='escolherDestino(1)'>Passagem Estreita</button>" +
+                                   "<button onclick='escolherDestino(2)'>Entrar na Caverna</button>";
+        }
+
+        function escolherDestino(escolha) {
+            var storyDiv = document.getElementById("story");
+            var choicesDiv = document.getElementById("choices");
+
+            // Adicione lógica para o resultado do destino escolhido
+
+            // Exemplo de como continuar a história
+            storyDiv.innerHTML += "<p>Continuando a história...</p>";
+
+            // Exemplo de como adicionar novas escolhas
+            choicesDiv.innerHTML = "<button onclick='pedidoDeNamoro()'>Chegar à conclusão da jornada</button>";
+        }
+
+        function pedidoDeNamoro() {
+            var storyDiv = document.getElementById("story");
+            var choicesDiv = document.getElementById("choices");
+            var imagemPedidoAceitoDiv = document.getElementById("imagemPedidoAceito");
+            var imagemPedidoRecusadoDiv = document.getElementById("imagemPedidoRecusado");
+
+            storyDiv.innerHTML += "<p>Chegando à conclusão da jornada, você encontra o 'Cristal do Destino'.</p>";
+            storyDiv.innerHTML += "<p>Surpreendentemente, a pessoa que você conheceu durante a jornada aparece.</p>";
+            storyDiv.innerHTML += "<p>Ela revela que também estava em busca do cristal, mas agora percebe que o verdadeiro tesouro é o amor entre vocês.</p>";
+
+            // Exemplo de como adicionar novas escolhas
+            choicesDiv.innerHTML = "<button onclick='aceitarPedido()'>Aceitar o pedido de namoro</button>" +
+                                   "<button onclick='recusarPedido()'>Recusar o pedido de namoro</button>";
+        }
+
+        function aceitarPedido() {
+            var storyDiv = document.getElementById("story");
+            var imagemPedidoAceitoDiv = document.getElementById("imagemPedidoAceito");
+
+            storyDiv.innerHTML += "<p>Parabéns! Você encontrou o verdadeiro tesouro do coração.</p>";
+
+            // Exibe a imagem do pedido aceito
+            imagemPedidoAceitoDiv.style.display = "block";
+
+            fimDoJogo();
+        }
+
+        function recusarPedido() {
+            var storyDiv = document.getElementById("story");
+            var imagemPedidoRecusadoDiv = document.getElementById("imagemPedidoRecusado");
+
+            storyDiv.innerHTML += "<p>Você optou por recusar o pedido. A jornada continua em busca de outros tesouros.</p>";
+
+            // Exibe a imagem do pedido recusado
+            imagemPedidoRecusadoDiv.style.display = "block";
+
+            fimDoJogo();
+        }
+
+        function fimDoJogo() {
+            var choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "<p>Fim do jogo!</p>";
+        }
+    </script>
+</body>
+</html>
